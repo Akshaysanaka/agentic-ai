@@ -31,12 +31,15 @@ export default function AIAgent({ user }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query: input }),
       })
-      
+
       if (!response.ok) {
         throw new Error(`Server error: ${response.status}`)
       }
-      
+
       const data = await response.json()
+      if (!data || typeof data.response !== 'string') {
+        throw new Error('Invalid response format from server')
+      }
       const aiMessage = { role: 'ai', content: data.response || 'Sorry, I couldn\'t process that.' }
       setMessages(prev => [...prev, aiMessage])
 
