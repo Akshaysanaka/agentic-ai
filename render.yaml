@@ -16,7 +16,7 @@ services:
     name: agentic-frontend
     runtime: static
     rootDirectory: Frontend
-    buildCommand: npm install && npm run build
+    buildCommand: npm install ; npm run build
     staticPublishPath: dist
     envVars:
       - key: NODE_ENV
