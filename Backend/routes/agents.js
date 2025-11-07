@@ -21,7 +21,9 @@ router.post('/crewai/suggest', async (req, res) => {
 router.post('/chat', async (req, res) => {
   try {
     const { query } = req.body || {}
-    if (!query) return res.status(400).json({ error: 'Query is required' })
+    if (!query || typeof query !== 'string' || query.trim() === '') {
+      return res.status(400).json({ error: 'Query is required and must be a non-empty string' })
+    }
 
   const q = String(query).toLowerCase()
   const isAimlQuery = /\b(ai|ml|aiml|machine\s*learning|artificial\s*intelligence)\b/.test(q) && /\b(who|people|person|done|did|owner|authors?)\b/.test(q)

@@ -36,8 +36,16 @@ export default function AIAgent({ user }) {
         throw new Error(`Server error: ${response.status}`)
       }
 
-      const data = await response.json()
+      let data
+      try {
+        data = await response.json()
+      } catch (parseError) {
+        console.error('JSON parse error:', parseError)
+        throw new Error('Server returned invalid JSON response')
+      }
+
       if (!data || typeof data.response !== 'string') {
+        console.error('Invalid response data:', data)
         throw new Error('Invalid response format from server')
       }
       const aiMessage = { role: 'ai', content: data.response || 'Sorry, I couldn\'t process that.' }
