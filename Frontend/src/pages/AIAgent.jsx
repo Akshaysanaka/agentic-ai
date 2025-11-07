@@ -63,22 +63,22 @@ export default function AIAgent({ user }) {
     <div className="space-y-6">
       <h1 className="text-3xl font-bold text-heading mb-6">AI Agent</h1>
       <div className="card p-8 shadow-xl">
-        <div className="h-96 overflow-y-auto border border-red-200 rounded-lg p-6 mb-6 bg-red-50">
+        <div className="h-96 overflow-y-auto border border-green-200 rounded-lg p-6 mb-6 bg-green-50">
           {messages.length === 0 && (
-            <p className="text-red-600 italic">Ask me anything about research, collaboration, or insights!</p>
+            <p className="text-green-600 italic">Ask me anything about research, collaboration, or insights!</p>
           )}
           {messages.map((msg, idx) => (
             <div key={idx} className={`mb-4 ${msg.role === 'user' ? 'text-right' : 'text-left'}`}>
-              <div className={`inline-block max-w-xs lg:max-w-md px-4 py-3 rounded-lg shadow-md ${msg.role === 'user' ? 'bg-red-600 text-white' : 'bg-white dark:bg-slate-900/70 text-primary dark:text-slate-100 border border-red-200 dark:border-slate-700'}`}>
+              <div className={`inline-block max-w-xs lg:max-w-md px-4 py-3 rounded-lg shadow-md ${msg.role === 'user' ? 'bg-green-600 text-white' : 'bg-white dark:bg-slate-900/70 text-primary dark:text-slate-100 border border-green-200 dark:border-slate-700'}`}>
                 <p className="text-sm">{msg.content}</p>
               </div>
             </div>
           ))}
           {loading && (
             <div className="text-left mb-4">
-              <div className="inline-block px-4 py-3 rounded-lg bg-white dark:bg-slate-900/70 text-primary dark:text-slate-100 border border-red-200 dark:border-slate-700 shadow-md">
+              <div className="inline-block px-4 py-3 rounded-lg bg-white dark:bg-slate-900/70 text-primary dark:text-slate-100 border border-green-200 dark:border-slate-700 shadow-md">
                 <div className="flex items-center space-x-2">
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-red-600"></div>
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-green-600"></div>
                   <span className="text-sm">AI is thinking...</span>
                 </div>
               </div>
