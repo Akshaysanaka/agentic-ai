@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    color: var(--text-secondary);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+  }
+}
+
+:root {
+  color-scheme: light;
+  --bg-gradient-from: #fff1f2; /* rose-50 */
+  --bg-gradient-to: #fee2e2;   /* red-100 */
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --border-color: rgba(248, 113, 113, 0.35);
+  --brand: #dc2626;
+  --text-primary: #1e293b; /* slate-800 - main headings */
+  --text-secondary: #475569; /* slate-600 - body text */
+  --text-tertiary: #64748b; /* slate-500 - labels/meta */
+  --text-accent: #b91c1c; /* red-700 - emphasis */
+  --text-heading: #991b1b; /* red-800 - page titles */
+}
+
+.dark {
+  color-scheme: dark;
+  --bg-gradient-from: #0b0f19;
+  --bg-gradient-to: #1c242f;
+  --card-bg: rgba(17, 24, 39, 0.6);
+  --border-color: rgba(248, 113, 113, 0.25);
+  --brand: #f43f5e;
+  --text-primary: #f1f5f9; /* slate-100 */
+  --text-secondary: #cbd5e1; /* slate-300 */
+  --text-tertiary: #94a3b8; /* slate-400 */
+  --text-accent: #fda4af; /* rose-300 */
+  --text-heading: #fecdd3; /* rose-200 */
+}
+
+/* Advanced red-themed design */
+.btn {
+  @apply inline-flex items-center justify-center rounded-md px-4 py-2 font-medium transition-all duration-200 shadow-md;
+}
+.btn-primary {
+  @apply bg-red-600 text-white hover:bg-red-700 hover:shadow-lg;
+}
+.btn-secondary {
+  @apply bg-red-500 text-white hover:bg-red-600 hover:shadow-lg;
+}
+.btn-accent {
+  @apply bg-red-400 text-white hover:bg-red-500 hover:shadow-lg;
+}
+.card {
+  @apply rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border;
+  background: var(--card-bg);
+  border-color: var(--border-color);
+  backdrop-filter: blur(10px) saturate(120%);
+}
+.input {
+  @apply w-full rounded-md border border-red-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500;
+}
+.label {
+  @apply block text-sm font-medium mb-1;
+  color: var(--text-primary);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #dc2626;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b91c1c;
+}
+
+/* Gradient backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+}
+
+.page-bg {
+  background: linear-gradient(135deg, var(--bg-gradient-from), var(--bg-gradient-to));
+}
+
+/* Subtle float animation */
+.float {
+  animation: float 8s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Text color utilities */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-tertiary { color: var(--text-tertiary); }
+.text-accent { color: var(--text-accent); }
+.text-heading { color: var(--text-heading); }
