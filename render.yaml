@@ -14,10 +14,10 @@ services:
         value: 5000
   - type: web
     name: agentic-frontend
-    runtime: node
+    runtime: static
     rootDirectory: Frontend
-    buildCommand: npm install
-    startCommand: npm run dev
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
     envVars:
       - key: NODE_ENV
         value: production
