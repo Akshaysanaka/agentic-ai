@@ -19,8 +19,9 @@ router.post('/crewai/suggest', async (req, res) => {
 })
 
 router.post('/chat', async (req, res) => {
-  const { query } = req.body || {}
-  if (!query) return res.status(400).json({ error: 'Query is required' })
+  try {
+    const { query } = req.body || {}
+    if (!query) return res.status(400).json({ error: 'Query is required' })
 
   const q = String(query).toLowerCase()
   const isAimlQuery = /\b(ai|ml|aiml|machine\s*learning|artificial\s*intelligence)\b/.test(q) && /\b(who|people|person|done|did|owner|authors?)\b/.test(q)
@@ -232,6 +233,10 @@ router.post('/chat', async (req, res) => {
   const results = await semanticSearchLangChain(query)
   const response = `I understand you're asking about "${query}". Here's what I found:\n${results.map(r => `• ${r.doc}`).join('\n')}\n\nYou can also ask me:\n• About specific people (e.g., "about John Smith")\n• Who worked on specific topics (e.g., "who did AI projects")\n• General questions about the application`
   res.json({ response })
+  } catch (error) {
+    console.error('Chat endpoint error:', error)
+    res.status(500).json({ error: 'Internal server error', response: 'Sorry, I encountered an error processing your request. Please try again.' })
+  }
 })
 
 export default router
