@@ -41,7 +41,7 @@ app.use('/api/auth', authRoute)
 app.use('/api/seed', seedRoute)
 
 const PORT = process.env.PORT || 5000
-const MONGODB_URI = process.env.MONGODB_URI || 'MONGODB_URI=mongodb+srv://akshaysanaka07_db_user:OFVihQtMOUqy8B4E@cluster0.vl01zdp.mongodb.net/?appName=Cluster0'
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://akshaysanaka07_db_user:DmwJahdpT5up3Kh1@cluster0.punq8o5.mongodb.net/?appName=Cluster0'
 
 
 connectMongo(MONGODB_URI)
