@@ -1,4 +1,4 @@
-const API = import.meta.env.VITE_API_BASE_URL || 'https://agentic-ai-1-fk2m.onrender.com'
+const API = import.meta.env.VITE_API_BASE_URL || 'https://agentic-ai-4-backend-50.onrender.com'
 
 export async function getProfiles() {
   const res = await fetch(`${API}/profiles`)
