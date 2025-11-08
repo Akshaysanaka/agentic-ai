@@ -4,12 +4,12 @@ services:
     runtime: node
     rootDirectory: Backend
     buildCommand: npm install
-    startCommand: npm run dev
+    startCommand: npm run start
     envVars:
       - key: NODE_ENV
         value: production
       - key: MONGODB_URI
-        value: mongodb+srv://akshaysanaka07_db_user:HZMvpmlJrQlHDpWJ@cluster0.vl01zdp.mongodb.net/?appName=Cluster0
+        value: mongodb+srv://akshaysanaka07_db_user:DmwJahdpT5up3Kh1@cluster0.punq8o5.mongodb.net/?appName=Cluster0
       - key: PORT
         value: 5000
   - type: web
